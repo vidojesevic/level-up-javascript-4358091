@@ -30,4 +30,19 @@ class Book {
   }
 }
 
-// Write your code here
+// Write your code here // Edition, getEdition()
+class TechnicalBook extends Book {
+    constructor(title, author, ISBN, numCopies, edition) {
+        super(title, author, ISBN, numCopies);
+        this.edition = edition;
+    }
+
+    getEdition() {
+        return `The current version of this book is ${this.edition}`;
+    }
+}
+
+const continuosDelivery = new TechnicalBook("Continous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation", "Martin Fowler", "978-0321601919", 14, "1st Edition");
+console.log(continuosDelivery.getEdition());
+
+

@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>01_03_Vegetarian_Dinner</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>01_03_Vegetarian_Dinner</title>
+    </head>
 
-<body>
-  <!-- To run this file right click the file in the navigation bar and select "Open with live server. Then open the developer tools in the browser and head to the console window."-->
+    <body>
+        <!-- To run this file right click the file in the navigation bar and select "Open with live server. Then open the developer tools in the browser and head to the console window."-->
 
-  <!-- Use this element to render your menu -->
-  <ul id="menu"></ul>
+        <!-- Use this element to render your menu -->
+        <ul id="menu"></ul>
 
-  <script>
-    const menu = [
-      {
-        name: "Chicken parmesan",
-        isVegetarian: false
-      },
-      {
-        name: "Stuffed shells",
-        isVegetarian: true
-      },
-      {
-        name: "Spaghetti and meatballs",
-        isVegetarian: false
-      },
-      {
-        name: "Tiramisu",
-        isVegetarian: true
-      }
-    ]
-    // Write your code here
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+        <script>
+        const menu = [
+            {
+                name: "Chicken parmesan",
+                isVegetarian: false
+            },
+            {
+                name: "Stuffed shells",
+                isVegetarian: true
+            },
+            {
+                name: "Spaghetti and meatballs",
+                isVegetarian: false
+            },
+            {
+                name: "Tiramisu",
+                isVegetarian: true
+            }
+        ]
+        // Write your code here
+        function findVegan(arr) {
+            const vegan = arr.filter(arr => arr.isVegetarian);
+            const ul = $('#menu');
+            for (let i = 0; i < vegan.length; ++i) {
+                $('<li>').text(vegan[i].name).appendTo(ul);
+            }
+        }
+        findVegan(menu);
 
-  </script>
-</body>
+
+        </script>
+    </body>
 
 </html>
