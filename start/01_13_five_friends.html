@@ -16,6 +16,26 @@
 
   <script>
     // Write your code here
+    // https://randomuser.me/api/?results=5
+    // const getUser = async () => {}
+    async function getUser() {
+        let people = await fetch("https://randomuser.me/api/?results=5");
+        let data = await people.json();
+        console.log(data)
+        const timeline = document.querySelector('#timeline');
+        data.results.forEach(person => {
+            let image = document.createElement('img');
+            image.src = person.picture.medium;
+            timeline.appendChild(image);
+            let cell = document.createElement('p');
+            cell.innerText = person.gender;
+            timeline.appendChild(cell);
+
+            let br = document.createElement('br');
+            timeline.appendChild(br);
+        })
+    } 
+    getUser();
     
   </script>
 </body>
